@@ -24,6 +24,7 @@ class CreatePengajuanTable extends Migration
             $table->tinyInteger('acc_kps');
             $table->tinyInteger('acc_kadep');
             $table->tinyInteger('acc_wadek2');
+            $table->softDeletes();
             $table->timestamps();
         });
 

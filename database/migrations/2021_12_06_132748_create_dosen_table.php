@@ -19,6 +19,7 @@ class CreateDosenTable extends Migration
             $table->string('password');
             $table->string('alamat_dosen');
             $table->tinyInteger('jk_dosen');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

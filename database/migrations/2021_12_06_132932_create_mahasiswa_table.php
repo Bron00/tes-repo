@@ -21,6 +21,7 @@ class CreateMahasiswaTable extends Migration
             $table->date('tgl_lahir_mhs');
             $table->string('alamat_mhs');
             $table->tinyInteger('jk_mhs');
+            $table->softDeletes();
             $table->timestamps();
         });
 

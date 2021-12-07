@@ -19,6 +19,7 @@ class CreateKadepTable extends Migration
             $table->string('password');
             $table->string('alamat_kadep');
             $table->tinyInteger('jk_kadep');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -19,6 +19,7 @@ class CreateKpsTable extends Migration
             $table->string('password');
             $table->string('alamat_kps');
             $table->tinyInteger('jk_kps');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

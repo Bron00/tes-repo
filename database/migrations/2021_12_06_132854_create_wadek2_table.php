@@ -19,6 +19,7 @@ class CreateWadek2Table extends Migration
             $table->string('password');
             $table->string('alamat_wadek2');
             $table->tinyInteger('jk_wadek2');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

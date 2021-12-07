@@ -18,6 +18,7 @@ class CreateLaporanTable extends Migration
             $table->char('nim_mhs',12);
             $table->string('nama_laporan');
             $table->smallInteger('jenis_laporan');
+            $table->softDeletes();
             $table->timestamps();
         });
 

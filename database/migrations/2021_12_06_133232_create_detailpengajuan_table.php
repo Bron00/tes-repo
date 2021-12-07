@@ -17,6 +17,7 @@ class CreateDetailpengajuanTable extends Migration
             $table->unsignedBigInteger('id_pengajuan');
             $table->unsignedBigInteger('id_sidang');
             $table->primary(['id_pengajuan', 'id_sidang']);
+            $table->softDeletes();
             $table->timestamps();
         });
 
