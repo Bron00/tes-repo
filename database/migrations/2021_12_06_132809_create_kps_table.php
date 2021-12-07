@@ -16,6 +16,7 @@ class CreateKpsTable extends Migration
         Schema::create('kps', function (Blueprint $table) {
             $table->char('nip_kps',16)->primary();
             $table->string('nama_kps');
+            $table->string('password');
             $table->string('alamat_kps');
             $table->tinyInteger('jk_kps');
             $table->timestamps();

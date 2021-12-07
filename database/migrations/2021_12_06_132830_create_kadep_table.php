@@ -16,6 +16,7 @@ class CreateKadepTable extends Migration
         Schema::create('kadep', function (Blueprint $table) {
             $table->char('nip_kadep',16)->primary();
             $table->string('nama_kadep');
+            $table->string('password');
             $table->string('alamat_kadep');
             $table->tinyInteger('jk_kadep');
             $table->timestamps();

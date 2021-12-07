@@ -16,6 +16,7 @@ class CreatePaaTable extends Migration
         Schema::create('paa', function (Blueprint $table) {
             $table->char('nip_paa',16)->primary();
             $table->string('nama_paa');
+            $table->string('password');
             $table->string('alamat_paa');
             $table->tinyInteger('jk_paa');
             $table->timestamps();

@@ -17,6 +17,7 @@ class CreateMahasiswaTable extends Migration
             $table->char('nim_mhs',12)->primary();
             $table->char('nip_dosen',16);
             $table->string('nama_mhs');
+            $table->string('password');
             $table->date('tgl_lahir_mhs');
             $table->string('alamat_mhs');
             $table->tinyInteger('jk_mhs');

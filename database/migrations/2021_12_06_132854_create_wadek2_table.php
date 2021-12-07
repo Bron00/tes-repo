@@ -16,6 +16,7 @@ class CreateWadek2Table extends Migration
         Schema::create('wadek2', function (Blueprint $table) {
             $table->char('nip_wadek2',16)->primary();
             $table->string('nama_wadek2');
+            $table->string('password');
             $table->string('alamat_wadek2');
             $table->tinyInteger('jk_wadek2');
             $table->timestamps();

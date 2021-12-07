@@ -16,6 +16,7 @@ class CreateDosenTable extends Migration
         Schema::create('dosen', function (Blueprint $table) {
             $table->char('nip_dosen',16)->primary();
             $table->string('nama_dosen');
+            $table->string('password');
             $table->string('alamat_dosen');
             $table->tinyInteger('jk_dosen');
             $table->timestamps();
