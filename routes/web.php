@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('login');
 });
 
+Route::get('/dashboard/paa',function(){
+    return view('dashboard.paa');
+});
+
 Route::get('/paa', 'App\Http\Controllers\paaController@index');
 Route::post('/paa/store','App\Http\Controllers\paaController@store');
 Route::get('/paa/edit/{id}','App\Http\Controllers\paaController@edit');
