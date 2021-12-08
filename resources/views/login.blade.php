@@ -14,7 +14,7 @@
 			<h1>HONORKU</h1><br>
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" /><br>
-			<button><a href="/dashboard/paa" style="color: white">LOGIN</a></button>
+			<button style="border-radius: 10px"><a href="/dashboard/paa" style="color: white">LOGIN</a></button>
 		</form>
 	</div>
 	<div class="overlay-container">

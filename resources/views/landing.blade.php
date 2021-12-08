@@ -24,7 +24,7 @@
                     <a class="navbar-brand" href="/" style="font-weight: bold; color: blue; font-family: sans-serif">HONORKU</a>
                 </div>               
                 <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 10px">
                       LOGIN
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
