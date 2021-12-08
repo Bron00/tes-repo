@@ -18,7 +18,7 @@
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
-            <div class="container-fluid me-4 sm-flex">
+            <div class="container-fluid sm-flex" style="margin-right: 5px">
                 <div class="container" style="display: block">
                     <img src="{{ url('assets/img/logo.png') }}" alt="logo" style="max-width: 5%">
                     <a class="navbar-brand" href="/" style="font-weight: bold; color: blue; font-family: sans-serif">HONORKU</a>
@@ -39,7 +39,7 @@
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead bg-primary">
+        <header class="masthead" style="background-image: url({{asset('assets/img/bglanding.jpg')}})">
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
