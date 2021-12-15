@@ -1,5 +1,6 @@
 @extends('dashboard.dashboard')
 @section('content')
+<div class="container-fluid">
 <h1 class="h3 mb-2 text-gray-800">Tables Laporan</h1>
 @if (session()->has('tambah'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -45,8 +46,9 @@
                     </select>                    
                 </div>
                 <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">Nama Laporan</label>
-                    <textarea name="nama_laporan" cols="30" rows="1" required></textarea>                  
+                    <label for="formGroupExampleInput" class="form-label">Nama Laporan</label> <br>
+                    <input type="text" name="nama_laporan" required="required">
+                </div>                  
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">Jenis Laporan</label><br>
                     <input type="radio" name="jenis_laporan" required="required" value="1"> PKL  <br>
@@ -98,8 +100,8 @@
                         <td>{{ $item->created_at }}</td>
                         <td>{{ $item->updated_at }}</td>
                         <td>
-                            <a href="paa/laporan/edit/{{ $item->id_laporan }}"> <i class="fas fa-trash"></i></a> |
-                            <a href="paa/laporan/hapus/{{ $item->id_laporan }}" onclick="return confirm('Apakah anda ingin menghapusnya?')"> <i class="fas fa-pen"></i></a>
+                            <a href="paa/laporan/edit/{{ $item->id_laporan }}"> <i class="fas fa-trash" style="color: red"></i></a> |
+                            <a href="paa/laporan/hapus/{{ $item->id_laporan }}" onclick="return confirm('Apakah anda ingin menghapusnya?')"> <i class="fas fa-pen" style="color: rgb(179, 179, 4)"></i></a>
                         </td>                                           
                     </tr>
                     @endforeach                                       
@@ -107,6 +109,7 @@
             </table>
         </div>
     </div>
+</div>
 </div>
     
 @endsection

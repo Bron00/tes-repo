@@ -124,8 +124,8 @@
                             <td>{{ $item->created_at }}</td>
                             <td>{{ $item->updated_at }}</td>
                             <td>
-                                <a href="paa/sidang/edit/{{ $item->id_sidang }}"> <i class="fas fa-trash"></i></a> |
-                                <a href="paa/sidang/hapus/{{ $item->id_sidang }}" onclick="return confirm('Apakah anda ingin menghapusnya?')"> <i class="fas fa-pen"></i></a>
+                                <a href="paa/sidang/edit/{{ $item->id_sidang }}"> <i class="fas fa-trash" style="color: red"></i></a> |
+                                <a href="paa/sidang/hapus/{{ $item->id_sidang }}" onclick="return confirm('Apakah anda ingin menghapusnya?')"> <i class="fas fa-pen" style="color: rgb(179, 179, 4)"></i></a>
                             </td>                                           
                         </tr>
                         @endforeach                                       

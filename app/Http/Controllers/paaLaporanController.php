@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class paaLaporanController extends Controller
 {
     public function index(){
-        $mahasiswa = DB::table('mhaswiswa')->get();
+        $mahasiswa = DB::table('mahasiswa')->get();
 
         $laporan = DB::table('laporan')
             ->join('mahasiswa', 'laporan.nim_mhs', '=', 'mahasiswa.nim_mhs')
