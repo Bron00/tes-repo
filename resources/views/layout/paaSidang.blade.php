@@ -113,12 +113,12 @@
                             <td>{{ $item->nama_dosen }}</td>
                             <td>{{ $item->nama_mhs }}</td>
                             <td>{{ $item->nama_laporan }}</td>
-                            <td>{{ $item->waktu }}</td>
-                            <td>{{ $item->tempat }}</td>
+                            <td>{{ $item->waktu_sidang }}</td>
+                            <td>{{ $item->tempat_sidang }}</td>
                             <td>
                                 <?php 
-                                if ($item->status==1){echo "Sudah Dilaksanakan";}
-                                if ($item->status==0){echo "Belum Dilaksanakan";}
+                                if ($item->status_sidang==1){echo "<p style='color: rgb(5, 252, 5);'>Sudah Dilaksanakan</p>";}
+                                if ($item->status_sidang==0){echo "<p style='color: red;'>Belum Dilaksanakan</p>";}
                                 ?>
                             </td>
                             <td>{{ $item->created_at }}</td>

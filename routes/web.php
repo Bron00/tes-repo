@@ -41,3 +41,12 @@ Route::post('/dashboard/paa/laporan/update','App\Http\Controllers\paalaporanCont
 Route::get('/dashboard/paa/laporan/hapus/{id}', 'App\Http\Controllers\paalaporanController@hapus');
 Route::get('/dashboard/paa/laporan/restore', 'App\Http\Controllers\paalaporanController@restore');
 Route::get('/dashboard/paa/laporan/restore/{id}', 'App\Http\Controllers\paalaporanController@back');
+
+//pengajuan
+Route::get('/dashboard/paa/pengajuan','App\Http\Controllers\paapengajuanController@index');
+Route::post('/dashboard/paa/pengajuan/store','App\Http\Controllers\paapengajuanController@store');
+Route::get('/dashboard/paa/pengajuan/edit/{id}','App\Http\Controllers\paapengajuanController@edit');
+Route::post('/dashboard/paa/pengajuan/update','App\Http\Controllers\paapengajuanController@update');
+Route::get('/dashboard/paa/pengajuan/hapus/{id}', 'App\Http\Controllers\paapengajuanController@hapus');
+Route::get('/dashboard/paa/pengajuan/restore', 'App\Http\Controllers\paapengajuanController@restore');
+Route::get('/dashboard/paa/pengajuan/restore/{id}', 'App\Http\Controllers\paapengajuanController@back');
