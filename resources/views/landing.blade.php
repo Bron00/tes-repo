@@ -45,7 +45,8 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">HONORKU, UANGMU AMAN BERSAMA KAMI!</h1>
+                            <h1 class="mb-5">HONORKU</h1>
+                            <h2 class="mb-5">Urus Honor Sidang PKL Magang Gak Pake Ribet!</h2>
                         </div>
                     </div>
                 </div>
