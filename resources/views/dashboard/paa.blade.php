@@ -46,7 +46,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/dashboard/paa">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -58,22 +58,22 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/dashboard/paa/laporan">
                     <i class="fas fa-file-upload"></i>
                     <span>Laporan PKL/Magang</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/dashboard/paa/sidang">
                     <i class="fas fa-stream"></i>
                     <span>Sidang</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/dashboard/paa/pengajuan">
                     <i class="fas fa-briefcase"></i>
                     <span>Pengajuan Honor</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/dashboard/paa/detailpengajuan">
                     <i class="fas fa-calendar"></i>
                     <span>Detail Pengajuan Honor</span></a>
             </li>
@@ -86,12 +86,12 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Daftar Akun :</h6>
-                        <a class="collapse-item" href="buttons.html">PAA</a>
-                        <a class="collapse-item" href="cards.html">Mahasiswa</a>
-                        <a class="collapse-item" href="cards.html">Dosen</a>
-                        <a class="collapse-item" href="cards.html">KPS</a>
-                        <a class="collapse-item" href="cards.html">KADEP</a>
-                        <a class="collapse-item" href="cards.html">WADEK II</a>
+                        <a class="collapse-item" href="/dashboard/paa/paa">PAA</a>
+                        <a class="collapse-item" href="/dashboard/paa/mahasiswa">Mahasiswa</a>
+                        <a class="collapse-item" href="/dashboard/paa/dosen">Dosen</a>
+                        <a class="collapse-item" href="/dashboard/paa/kps">KPS</a>
+                        <a class="collapse-item" href="/dashboard/paa/kadep">KADEP</a>
+                        <a class="collapse-item" href="/dashboard/paa/wadek">WADEK II</a>
                     </div>
                 </div>
             </li>
