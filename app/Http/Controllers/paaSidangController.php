@@ -9,17 +9,20 @@ class paaSidangController extends Controller
 {
     public function index(){
         $dosen = DB::table('dosen')->get();
-        $mahasiswa = DB::table('mhaswiswa')->get();
+        $mahasiswa = DB::table('mahasiswa')->get();
+        $laporan = DB::table('laporan')->get();
 
         $sidang = DB::table('sidang')
             ->join('dosen', 'sidang.nip_dosen', '=', 'dosen.nip_dosen')
-            ->where('sidang.DELETED_AT',null)
+            ->where('sidang.deleted_at',null)
             ->join('mahasiswa', 'sidang.nim_mhs', '=', 'mahasiswa.nim_mhs')
-            ->where('sidang.DELETED_AT',null)
+            ->where('sidang.deleted_at',null)
+            ->join('laporan', 'laporan.id_laporan', '=', 'laporan.id_laporan')
+            ->where('sidang.deleted_at',null)
             ->get(); 
         
-        return view('layout.paaSidang',['sidang' => $sidang],['dosen' => $dosen],['mahasiswa' => $mahasiswa]);
-
+        // return view('layout.paaSidang',['sidang' => $sidang],['dosen' => $dosen],['mahasiswa' => $mahasiswa],['laporan' => $laporan]);
+        return view('layout.paaSidang')->with('dosen',$dosen)->with('mahasiswa',$mahasiswa)->with('laporan',$laporan)->with('sidang',$sidang);
     }
 
     public function store(Request $request){
@@ -36,15 +39,15 @@ class paaSidangController extends Controller
             'waktu_sidang' => $request->waktu_sidang,
             'tempat_sidang' => $request->tempat_sidang,
             'status_sidang' => $request->status_sidang,
-            'CREATED_AT' => date('Y-m-d H:i:s'),
-            'UPDATED_AT' => date('Y-m-d H:i:s'),
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
         ]);
         return redirect('/paaSidang')->with('tambah','Data berhasil ditambahkan');
     }
 
     public function edit($id){
         $dosen = DB::table('dosen')->get();
-        $mahasiswa = DB::table('mhaswiswa')->get();
+        $mahasiswa = DB::table('mahaswiswa')->get();
 
         $sidang = DB::table('sidang')
             ->join('dosen', 'sidang.nip_dosen', '=', 'dosen.nip_dosen')

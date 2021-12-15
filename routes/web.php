@@ -21,11 +21,14 @@ Route::get('/login', function () {
 });
 
 Route::get('/dashboard/paa',function(){
-    return view('dashboard.paa');
+    return view('layout.paa');
 });
 
-route::get('/dashboard/paa/sidang',function(){
-    return view('layout.paaSidang');
-});
-
+Route::get('/dashboard/paa/sidang','App\Http\Controllers\paaSidangController@index');
+Route::post('/dashboard/paa/sidang/store','App\Http\Controllers\paaSidangController@store');
+Route::get('/dashboard/paa/sidang/edit/{id}','App\Http\Controllers\paaSidangController@edit');
+Route::post('/dashboard/paa/sidang/update','App\Http\Controllers\paaSidangController@update');
+Route::get('/dashboard/paa/sidang/hapus/{id}', 'App\Http\Controllers\paaSidangController@hapus');
+Route::get('/dashboard/paa/sidang/restore', 'App\Http\Controllers\paaSidangController@restore');
+Route::get('/dashboard/paa/sidang/restore/{id}', 'App\Http\Controllers\paaSidangController@back');
 
