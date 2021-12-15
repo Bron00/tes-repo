@@ -28,8 +28,8 @@ class paaLaporanController extends Controller
             'nim_mhs' => $request->nim_mhs,
             'nama_laporan' => $request->nama_laporan,
             'jenis_laporan' => $request->jenis_laporan,
-            'CREATED_AT' => date('Y-m-d H:i:s'),
-            'UPDATED_AT' => date('Y-m-d H:i:s'),
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
         ]);
         return redirect('/paaLaporan')->with('tambah','Data berhasil ditambahkan');
     }
@@ -54,8 +54,8 @@ class paaLaporanController extends Controller
             'nim_mhs' => $request->nim_mhs,
             'nama_laporan' => $request->nama_laporan,
             'jenis_laporan' => $request->jenis_laporan,
-            'CREATED_AT' => date('Y-m-d H:i:s'),
-            'UPDATED_AT' => date('Y-m-d H:i:s'),
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
         ]);
         return redirect('/paaLaporan')->with('edit','Data berhasil diubah');
     }
