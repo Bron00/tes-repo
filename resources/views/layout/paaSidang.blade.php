@@ -87,7 +87,8 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between">
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#tambahBalita">Tambah</button>
-            <a type="button" class="btn btn-primary" href="/balita/restore">Restore</a>
+            <a type="button" class="btn btn-primary" href="">Rekap Sidang</a>
+            <a type="button" class="btn btn-primary" href="/sidang/restore">Restore</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
