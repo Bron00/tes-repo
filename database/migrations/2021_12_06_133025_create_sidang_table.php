@@ -21,6 +21,7 @@ class CreateSidangTable extends Migration
             $table->date('waktu_sidang');
             $table->string('tempat_sidang');
             $table->tinyInteger('status_sidang');
+            $table->string('bukti_sidang');
             $table->softDeletes();
             $table->timestamps();
         });
