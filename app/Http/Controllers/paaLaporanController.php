@@ -19,67 +19,21 @@ class paaLaporanController extends Controller
 
     }
 
-    public function store(Request $request){
-        $request ->validate([
-            'nim_mhs' => 'required|max:12|min:12|exists:mahasiswa,nim_mhs',
-        ]);
-        date_default_timezone_set('Asia/Jakarta');
-        DB::table('laporan')->insert([
-            'nim_mhs' => $request->nim_mhs,
-            'nama_laporan' => $request->nama_laporan,
-            'jenis_laporan' => $request->jenis_laporan,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-        ]);
-        return redirect('/paaLaporan')->with('tambah','Data berhasil ditambahkan');
-    }
-
-    public function edit($id){
-        $mahasiswa = DB::table('mhaswiswa')->get();
-
-        $laporan = DB::table('laporan')
-            ->join('mahasiswa', 'laporan.nim_mhs', '=', 'mahasiswa.nim_mhs')
-            ->where('laporan.DELETED_AT',null)
-            ->get(); 
-        
-        return view('edit.editPaaLaporan',['laporan' => $laporan],['mahasiswa' => $mahasiswa]);
-    }
-
     public function update(Request $request){
-        $request ->validate([
-            'nim_mhs' => 'required|max:12|min:12|exists:mahasiswa,nim_mhs',
-        ]);
         date_default_timezone_set('Asia/Jakarta');
-        DB::table('laporan')->insert([
-            'nim_mhs' => $request->nim_mhs,
-            'nama_laporan' => $request->nama_laporan,
-            'jenis_laporan' => $request->jenis_laporan,
-            'created_at' => date('Y-m-d H:i:s'),
+        DB::table('laporan')->where('id_laporan',$request->id_laporan)->update([
+            'status_laporan' => $request->status,
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
-        return redirect('/paaLaporan')->with('edit','Data berhasil diubah');
-    }
-    
-    public function hapus($id){
-        date_default_timezone_set('Asia/Jakarta');
-    	DB::table('laporan')->where('id_laporan',$id)->update([
-            'DELETED_AT' => date('Y-m-d H:i:s')
-        ]);
- 
-    	return redirect('/paaLaporan')->with('hapus','Data berhasil dihapus');
+        return redirect('/dashboard/paa/laporan')->with('edit','Data berhasil diubah');
     }
 
-    public function back($id){
-        DB::table('laporan')->where('id_laporan',$id)->update([
-            'DELETED_AT' => null
-        ]);
+    public function download(Request $request){
+        $nama = $request->file;
+        $filePath = public_path($nama);
+    	$headers = ['Content-Type: application/pdf'];
+    	$fileName = time().'.pdf';
 
-        return redirect('/paaLaporan')->with('back','Data berhasil dipulihkan');
+    	return response()->download($filePath, $fileName, $headers);
     }
-
-    public function restore(){
-        $restorelaporan = DB::table('laporan')->where('DELETED_AT','!=',null)->get();
-        return view('restore.restoreLaporan',['restorelaporan' => $restorelaporan]);
-    }
-
 }

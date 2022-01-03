@@ -1,6 +1,6 @@
 @extends('dashboard.dashboard')
 @section('content')
-<h1 class="h3 mb-2 text-gray-800">Tables Sidang</h1>
+<h1 class="h3 mb-2 text-gray-800">Tables Pengajuan</h1>
 @if (session()->has('tambah'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     {{ session('tambah') }}
@@ -27,7 +27,7 @@
 @endif
 
     <!--Tambah Balita modal-->
-    <div class="modal fade" id="tambahBalita" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {{-- <div class="modal fade" id="tambahBalita" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -54,12 +54,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">Nama Laporan</label>
-                        <select class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example" name="id_laporan">
+                        <select class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example" name="nim_mhs">
                             @foreach ($laporan as $item)
                                 <option value="{{ $item->id_laporan }}">{{ $item->nama_laporan }}</option>
                             @endforeach
-                        </select> 
-                    </div>                   
+                        </select>                    
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">Waktu</label><br>
                         <input type="datetime-local" name="waktu_sidang" required="required">
@@ -82,16 +81,13 @@
             </div>
         </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between">
-            <div>
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#tambahBalita">Tambah</button>
-                <a type="button" class="btn btn-primary" href="/dashboard/paa/sidang/rekap">Rekap Sidang</a>
-            </div>
-            <a type="button" class="btn btn-primary" href="/dashboard/paa/sidang/restore">Restore</a>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#tambahBalita">Tambah</button>
+            <a type="button" class="btn btn-primary" href="/balita/restore">Restore</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -99,51 +95,52 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>PAA</th>
                             <th>DOSEN</th>
-                            <th>MAHASISWA</th>
-                            <th>NAMA LAPORAN</th>
-                            <th>WAKTU</th>
-                            <th>TEMPAT</th>
+                            <th>KPS</th>
+                            <th>KADEP</th>
+                            <th>WADEK 2</th>
                             <th>STATUS</th>
-                            <th>BUKTI SIDANG</th>
+                            <th>ACC KPS</th>
+                            <th>ACC KADEP</th>
+                            <th>ACC WADEK2</th>
+                            <th>CREATED AT</th>
+                            <th>UPDATED AT</th>
                             <th>ACTION</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($sidang as $item)
+                        @foreach ($paa as $item)
                         <tr>
-                            <td>{{ $item->id_sidang }}</td>
+                            <td>{{ $item->id_pengajuan }}</td>
+                            <td>{{ $item->nama_paa }}</td>
                             <td>{{ $item->nama_dosen }}</td>
-                            <td>{{ $item->nama_mhs }}</td>
-                            <td>{{ $item->nama_laporan }}</td>
-                            <td>{{ $item->waktu_sidang }}</td>
-                            <td>{{ $item->tempat_sidang }}</td>
+                            <td>{{ $item->nama_kps }}</td>
+                            <td>{{ $item->nama_kadep }}</td>
+                            <td>{{ $item->nama_wadek2 }}</td>
                             <td>
                                 <?php 
-                                if ($item->status_sidang==1){echo "<p style='color: rgb(5, 252, 5);'>Sudah Dilaksanakan</p>";}
-                                if ($item->status_sidang==0){echo "<p style='color: red;'>Belum Dilaksanakan</p>";}
+                                if ($item->acc_kps==1){echo "<p style='color: rgb(5, 252, 5);'>Sudah Disetujui</p>";}
+                                if ($item->acc_kps==0){echo "<p style='color: red;'>Belum Disetuji</p>";}
                                 ?>
                             </td>
-                            <td>{{ $item->bukti_sidang }}</td>
                             <td>
-                                <a href="/dashboard/paa/sidang/edit/{{ $item->id_sidang }}"> <i class="fas fa-pen" style="color: rgb(179, 179, 4)"></i></a> |
-                                <a href="/dashboard/paa/sidang/hapus/{{ $item->id_sidang }}" onclick="return confirm('Apakah anda ingin menghapusnya?')"> <i class="fas fa-trash" style="color: red"></i></a> |
-                                <div class="dropdown">
-                                    <button class="btn btn-danger dropdown-toggle btn-xs" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Download
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li class="pb-1 pl-2">
-                                            <form action="/dashboard/paa/sidang/download" method="post">
-                                                @csrf
-                                                <input type="hidden" name="file" value="{{ $item->bukti_sidang }}">
-                                                <button class="btn btn-success tombol border-0 text-center" name="op">
-                                                    Download
-                                                </button>
-                                            </form>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <?php 
+                                if ($item->acc_kadep==1){echo "<p style='color: rgb(5, 252, 5);'>Sudah Disetujui</p>";}
+                                if ($item->acc_kadep==0){echo "<p style='color: red;'>Belum Disetuji</p>";}
+                                ?>
+                            </td>
+                            <td>
+                                <?php 
+                                if ($item->acc_wadek2==1){echo "<p style='color: rgb(5, 252, 5);'>Sudah Disetujui</p>";}
+                                if ($item->acc_wadek2==0){echo "<p style='color: red;'>Belum Disetuji</p>";}
+                                ?>
+                            </td>
+                            <td>{{ $item->created_at }}</td>
+                            <td>{{ $item->updated_at }}</td>
+                            <td>
+                                <a href="paa/sidang/edit/{{ $item->id_pengajuan }}"> <i class="fas fa-trash" style="color: red"></i></a> |
+                                <a href="paa/sidang/hapus/{{ $item->id_pengajuan }}" onclick="return confirm('Apakah anda ingin menghapusnya?')"> <i class="fas fa-pen" style="color: rgb(179, 179, 4)"></i></a>
                             </td>                                           
                         </tr>
                         @endforeach                                       

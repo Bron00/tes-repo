@@ -74,11 +74,6 @@
                     <span>Pengajuan Honor</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/dashboard/paa/detailpengajuan">
-                    <i class="fas fa-calendar"></i>
-                    <span>Detail Pengajuan Honor</span></a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-user"></i>
