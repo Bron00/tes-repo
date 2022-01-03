@@ -6,24 +6,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-class kpsPengajuanController extends Controller
+class wadek2PengajuanController extends Controller
 {
     public function index(){
         $pengajuan = DB::table('pengajuan')
             ->where('pengajuan.DELETED_AT',null)
             ->get(); 
         
-        return view('layout.kpsPengajuan')->with('pengajuan',$pengajuan);
+        return view('layout.kadepPengajuan')->with('pengajuan',$pengajuan);
 
     }
 
     public function update(Request $request){
         date_default_timezone_set('Asia/Jakarta');
-        DB::table('pengajuan')->where('id_pengajuan',$request->id_pengajuan)->update([
-            'acc_kps' => $request->acc_kps,
+        DB::table('pengajuan')->insert([
+            'acc_kadep' => $request->acc_kadep,
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
-        return redirect('/kps/pengajuan')->with('update','Status Pengajuan berhasil diubah');
+        return redirect('/kadep/pengajuan')->with('update','Pengajuan berhasil disetujui');
     }
     
 

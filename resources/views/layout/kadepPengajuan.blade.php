@@ -1,4 +1,4 @@
-@extends('dashboard.kpsdashboard')
+@extends('dashboard.kadepdashboard')
 @section('content')
 <h1 class="h3 mb-2 text-gray-800">Tables Pengajuan</h1>
 @if (session()->has('tambah'))
@@ -68,9 +68,9 @@
                             <td>{{ $item->created_at }}</td>
                             <td>{{ $item->updated_at }}</td>
                             <td>
-                                <form action="/kps/pengajuan" method="post">
+                                <form action="/wadek2/pengajuan" method="post">
                                     <input type="hidden" id="acckps" name="acckps" value="1">
-                                    <button type="submit" class="btn btn-primary" color="green">Submit</button>
+                                    <button type="submit" color="green">Submit</button>
                                 </form>
                             </td>                                           
                         </tr>
