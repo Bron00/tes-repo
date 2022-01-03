@@ -33,7 +33,7 @@ class paapengajuanController extends Controller
     }
 
     public function edit($id){
-        $mahasiswa = DB::table('mhaswiswa')->get();
+        $mahasiswa = DB::table('mahaswiswa')->get();
 
         $laporan = DB::table('laporan')
             ->join('mahasiswa', 'laporan.nim_mhs', '=', 'mahasiswa.nim_mhs')
