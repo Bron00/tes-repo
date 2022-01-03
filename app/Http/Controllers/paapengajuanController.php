@@ -18,66 +18,70 @@ class paapengajuanController extends Controller
     }
 
     public function store(Request $request){
-        $request ->validate([
-            'nim_mhs' => 'required|max:12|min:12|exists:mahasiswa,nim_mhs',
-        ]);
         date_default_timezone_set('Asia/Jakarta');
-        DB::table('laporan')->insert([
-            'nim_mhs' => $request->nim_mhs,
-            'nama_laporan' => $request->nama_laporan,
-            'jenis_laporan' => $request->jenis_laporan,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
+        $request->validate([
+            'file' => 'required|mimes:pdf,xlx,csv|max:2048',
         ]);
-        return redirect('/paaLaporan')->with('tambah','Data berhasil ditambahkan');
+  
+        $fileName = time().'.'.$request->file->extension();  
+   
+        $request->file->move(public_path('uploads'), $fileName);
+        DB::table('pengajuan')->insert([
+            'file_pengajuan'=> $fileName,
+            'status_pengajuan'=> 1,
+            'acc_kps' => 0,
+            'acc_kadep'=> 0,
+            'acc_wadek2' => 0,
+            'created_at'=> date('Y-m-d H:i:s'),
+            'updated_at'=>date('Y-m-d H:i:s')
+        ]);
+        return redirect('/dashboard/paa/pengajuan')->with('tambah','Data berhasil ditambahkan');
     }
 
     public function edit($id){
-        $mahasiswa = DB::table('mahaswiswa')->get();
-
-        $laporan = DB::table('laporan')
-            ->join('mahasiswa', 'laporan.nim_mhs', '=', 'mahasiswa.nim_mhs')
-            ->where('laporan.DELETED_AT',null)
-            ->get(); 
-        
-        return view('edit.editPaaLaporan',['laporan' => $laporan],['mahasiswa' => $mahasiswa]);
+        $pengajuan = DB::table('pengajuan')
+        ->where('pengajuan.id_pengajuan',$id)
+        ->get(); 
+    
+        return view('edit.editpengajuan')->with('pengajuan',$pengajuan);
     }
 
     public function update(Request $request){
-        $request ->validate([
-            'nim_mhs' => 'required|max:12|min:12|exists:mahasiswa,nim_mhs',
-        ]);
         date_default_timezone_set('Asia/Jakarta');
-        DB::table('laporan')->insert([
-            'nim_mhs' => $request->nim_mhs,
-            'nama_laporan' => $request->nama_laporan,
-            'jenis_laporan' => $request->jenis_laporan,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
+        $request->validate([
+            'file' => 'required|mimes:pdf,xlx,csv|max:2048',
         ]);
-        return redirect('/paaLaporan')->with('edit','Data berhasil diubah');
+  
+        $fileName = time().'.'.$request->file->extension();  
+   
+        $request->file->move(public_path('uploads'), $fileName);
+        DB::table('pengajuan')->where('id_pengajuan',$request->id_pengajuan)->update([
+            'file_pengajuan'=> $fileName,
+            'updated_at'=>date('Y-m-d H:i:s')
+        ]);
+        return redirect('/dashboard/paa/pengajuan')->with('tambah','Data berhasil dirubah');
     }
     
     public function hapus($id){
         date_default_timezone_set('Asia/Jakarta');
-    	DB::table('laporan')->where('id_laporan',$id)->update([
-            'DELETED_AT' => date('Y-m-d H:i:s')
+    	DB::table('pengajuan')->where('id_pengajuan',$id)->update([
+            'deleted_at' => date('Y-m-d H:i:s')
         ]);
  
-    	return redirect('/paaLaporan')->with('hapus','Data berhasil dihapus');
+    	return redirect('/dashboard/paa/pengajuan')->with('hapus','Data berhasil dihapus');
     }
 
     public function back($id){
-        DB::table('laporan')->where('id_laporan',$id)->update([
-            'DELETED_AT' => null
+        DB::table('pengajuan')->where('id_pengajuan',$id)->update([
+            'deleted_at' => null
         ]);
 
-        return redirect('/paaLaporan')->with('back','Data berhasil dipulihkan');
+        return redirect('/dashboard/paa/pengajuan')->with('back','Data berhasil dipulihkan');
     }
 
     public function restore(){
-        $restorelaporan = DB::table('laporan')->where('DELETED_AT','!=',null)->get();
-        return view('restore.restoreLaporan',['restorelaporan' => $restorelaporan]);
+        $restorepengajuan = DB::table('pengajuan')->where('deleted_at','!=',null)->get();
+        return view('restore.restorePengajuan',['restorepengajuan' => $restorepengajuan]);
     }
 
 }
