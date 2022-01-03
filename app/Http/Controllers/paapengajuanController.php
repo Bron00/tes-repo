@@ -9,22 +9,11 @@ use Illuminate\Support\Facades\DB;
 class paapengajuanController extends Controller
 {
     public function index(){
-        $dosen = DB::table('dosen')->get();
-        $paa = DB::table('paa')->get();
-        $kps = DB::table('kps')->get();
-        $wadek2 = DB::table('wadek2')->get();
-        $kadep = DB::table('kadep')->get();
-
-        $laporan = DB::table('pengajuan')
-            ->join('dosen', 'pengajuan.nip_dosen', '=', 'dosen.nip_dosen')
-            ->join('paa','pengajuan.nip_paa','=','paa.nip_paa')
-            ->join('kps','pengajuan.nip_kps','=','kps.nip_kps')
-            ->join('wadek2','pengajuan.nip_wadek2','=','wadek2.nip_wadek2')
-            ->join('kadep','pengajuan.nip_kadep','=','kadep.nip_kadep')
+        $pengajuan = DB::table('pengajuan')
             ->where('pengajuan.DELETED_AT',null)
             ->get(); 
         
-        return view('layout.paaPengajuan')->with('dosen',$dosen)->with('paa',$paa)->with('kps',$kps)->with('wadek2',$wadek2)->with('kadep',$kadep);
+        return view('layout.paaPengajuan')->with('pengajuan',$pengajuan);
 
     }
 

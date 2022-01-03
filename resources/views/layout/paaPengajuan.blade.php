@@ -95,12 +95,6 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>PAA</th>
-                            <th>DOSEN</th>
-                            <th>KPS</th>
-                            <th>KADEP</th>
-                            <th>WADEK 2</th>
-                            <th>STATUS</th>
                             <th>ACC KPS</th>
                             <th>ACC KADEP</th>
                             <th>ACC WADEK2</th>
@@ -110,13 +104,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($paa as $item)
+                        @foreach ($pengajuan as $item)
                         <tr>
                             <td>{{ $item->id_pengajuan }}</td>
-                            <td>{{ $item->nama_paa }}</td>
-                            <td>{{ $item->nama_dosen }}</td>
-                            <td>{{ $item->nama_kps }}</td>
-                            <td>{{ $item->nama_kadep }}</td>
                             <td>{{ $item->nama_wadek2 }}</td>
                             <td>
                                 <?php 
