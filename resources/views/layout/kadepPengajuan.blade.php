@@ -67,10 +67,23 @@
                             <td>{{ $item->created_at }}</td>
                             <td>{{ $item->updated_at }}</td>
                             <td>
-                                <form action="/wadek2/pengajuan" method="post">
-                                    <input type="hidden" id="acckps" name="acckps" value="1">
-                                    <button type="submit" color="green">Submit</button>
-                                </form>
+                            <div class="dropdown">
+                                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Action
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li class="pb-1 pl-2">
+                                        <form action="/dashboard/kadep/pengajuan/update" method="post">
+                                            @csrf
+                                            <input type="hidden" name="id_pengajuan" value="{{ $item->id_pengajuan }}">
+                                            <input type="hidden" name="acc_kadep" value="1">
+                                            <button class="btn btn-success tombol border-0 text-center" name="op">
+                                                Setujui
+                                            </button>
+                                        </form>
+                                    </li>
+                                    </ul>
+                                </div>
                             </td>                                           
                         </tr>
                         @endforeach                                       

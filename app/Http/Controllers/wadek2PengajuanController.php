@@ -19,11 +19,11 @@ class wadek2PengajuanController extends Controller
 
     public function update(Request $request){
         date_default_timezone_set('Asia/Jakarta');
-        DB::table('pengajuan')->insert([
+        DB::table('pengajuan')->where('id_pengajuan',$request->id_pengajuan)->update([
             'acc_wadek2' => $request->acc_wadek2,
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
-        return redirect('/wadek2/pengajuan')->with('update','Pengajuan berhasil disetujui');
+        return redirect('/dashboard/wadek2/pengajuan')->with('update','Pengajuan berhasil disetujui');
     }
     
 

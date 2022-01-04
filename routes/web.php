@@ -88,15 +88,15 @@ Route::get('/dashboard/paa/wadek','App\Http\Controllers\paaWadekController@index
 
 //kps
 Route::get('/dashboard/kps/pengajuan','App\Http\Controllers\kpsPengajuanController@index');
-Route::post('/dashboard/kps/pengajuan','App\Http\Controllers\kpsPengajuanController@update');
+Route::post('/dashboard/kps/laporan/update','App\Http\Controllers\kpsPengajuanController@update');
 
 //kadep
-Route::get('/dashboard/kadep/pengajuan','App\Http\Controllers\kpsPengajuanController@index');
-Route::post('/dashboard/kadep/pengajuan','App\Http\Controllers\kpsPengajuanController@update');
+Route::get('/dashboard/kadep/pengajuan','App\Http\Controllers\kadepPengajuanController@index');
+Route::post('/dashboard/kadep/pengajuan/update','App\Http\Controllers\kadepPengajuanController@update');
 
 //wadek2
-Route::get('/dashboard/wadek2/pengajuan','App\Http\Controllers\kpsPengajuanController@index');
-Route::post('/dashboard/wadek2/pengajuan','App\Http\Controllers\kpsPengajuanController@update');
+Route::get('/dashboard/wadek2/pengajuan','App\Http\Controllers\wadek2PengajuanController@index');
+Route::post('/dashboard/wadek2/pengajuan/update','App\Http\Controllers\wadek2PengajuanController@update');
 
 //mahasiswa
 Route::get('/dashboard/mahasiswa/laporan','App\Http\Controllers\mahasiswaLaporanController@index');

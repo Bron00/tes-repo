@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-class wadek2PengajuanController extends Controller
+class kadepPengajuanController extends Controller
 {
     public function index(){
         $pengajuan = DB::table('pengajuan')
@@ -19,11 +19,11 @@ class wadek2PengajuanController extends Controller
 
     public function update(Request $request){
         date_default_timezone_set('Asia/Jakarta');
-        DB::table('pengajuan')->insert([
+        DB::table('pengajuan')->where('id_pengajuan',$request->id_pengajuan)->update([
             'acc_kadep' => $request->acc_kadep,
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
-        return redirect('/kadep/pengajuan')->with('update','Pengajuan berhasil disetujui');
+        return redirect('/dashboard/kadep/pengajuan')->with('update','Pengajuan berhasil disetujui');
     }
     
 
