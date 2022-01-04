@@ -37,7 +37,7 @@
                             <td>{{ $item->alamat_kps }}</td>
                             <td>
                                 <?php
-                                    if ($item->jk_dosen == 1) {
+                                    if ($item->jk_kps == 1) {
                                         echo "Laki-Laki";
                                     }else {
                                         echo "Perempuan";
