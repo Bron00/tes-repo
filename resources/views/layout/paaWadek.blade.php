@@ -31,13 +31,13 @@
                     <tbody>
                         @foreach ($wadek as $item)
                         <tr>
-                            <td>{{ $item->nip_wadek }}</td>
-                            <td>{{ $item->nama_wadek }}</td>
+                            <td>{{ $item->nip_wadek2 }}</td>
+                            <td>{{ $item->nama_wadek2 }}</td>
                             <td>{{ $item->password }}</td>
-                            <td>{{ $item->alamat_wadek }}</td>
+                            <td>{{ $item->alamat_wadek2 }}</td>
                             <td>
                                 <?php
-                                    if ($item->jk_wadek == 1) {
+                                    if ($item->jk_wadek2 == 1) {
                                         echo "Laki-Laki";
                                     }else {
                                         echo "Perempuan";
@@ -45,8 +45,8 @@
                                 ?>
                             </td>
                             <td>
-                                <a href="/dashboard/paa/paa/edit/{{ $item->nip_wadek }}" class="btn btn-warning">Edit</a>
-                                <a href="/dashboard/paa/paa/hapus/{{ $item->nip_wadek }}" onclick="return confirm('Apakah anda ingin menghapusnya?')" class="btn btn-danger">Hapus</a>
+                                <a href="/dashboard/paa/paa/edit/{{ $item->nip_wadek2 }}" class="btn btn-warning">Edit</a>
+                                <a href="/dashboard/paa/paa/hapus/{{ $item->nip_wadek2 }}" onclick="return confirm('Apakah anda ingin menghapusnya?')" class="btn btn-danger">Hapus</a>
                             </td>                                           
                         </tr>
                         @endforeach                                       
