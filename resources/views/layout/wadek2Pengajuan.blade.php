@@ -46,7 +46,6 @@
                         @foreach ($pengajuan as $item)
                         <tr>
                             <td>{{ $item->id_pengajuan }}</td>
-                            <td>{{ $item->nama_wadek2 }}</td>
                             <td>
                                 <?php 
                                 if ($item->acc_kps==1){echo "<p style='color: rgb(5, 252, 5);'>Sudah Disetujui</p>";}

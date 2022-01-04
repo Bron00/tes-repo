@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class paamahasiswaController extends Controller
 {
     public function index(){
-        $mahasiswa = DB::table('mahasiswa')->where('mahasiswa.deleted_at',null)->join('dosen','dosen.nip_dosen','=','mahasiswa.nip_dosen')->get();
+        $mahasiswa = DB::table('mahasiswa as a')->select('a.*','b.nama_dosen as nama')->where('a.deleted_at',null)->join('dosen as b','b.nip_dosen','=','a.nip_dosen')->get();
 
         return view('layout.paaMahasiswa',['mahasiswa' => $mahasiswa]);
     }

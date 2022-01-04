@@ -34,7 +34,7 @@
                         @foreach ($mahasiswa as $item)
                         <tr>
                             <td>{{ $item->nim_mhs }}</td>
-                            <td>{{ $item->nama_dosen }}</td>
+                            <td>{{ $item->nama }}</td>
                             <td>{{ $item->nama_mhs }}</td>
                             <td>{{ $item->password }}</td>
                             <td>{{ $item->tgl_lahir_mhs }}</td>
