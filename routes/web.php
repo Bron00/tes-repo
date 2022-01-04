@@ -90,3 +90,15 @@ Route::post('/dashboard/kadep/pengajuan','App\Http\Controllers\kpsPengajuanContr
 //wadek2
 Route::get('/dashboard/wadek2/pengajuan','App\Http\Controllers\kpsPengajuanController@index');
 Route::post('/dashboard/wadek2/pengajuan','App\Http\Controllers\kpsPengajuanController@update');
+
+Route::get('/dashboard/mahasiswa/laporan','App\Http\Controllers\mahasiswaLaporanController@index');
+Route::post('/dashboard/mahasiswa/laporan/store','App\Http\Controllers\mahasiswaLaporanController@store');
+Route::get('/dashboard/mahasiswa/laporan/edit/{id}','App\Http\Controllers\mahasiswaLaporanController@edit');
+Route::post('/dashboard/mahasiswa/laporan/update','App\Http\Controllers\mahasiswaLaporanController@update');
+Route::get('/dashboard/mahasiswa/laporan/hapus/{id}', 'App\Http\Controllers\mahasiswaLaporanController@hapus');
+Route::get('/dashboard/mahasiswa/laporan/restore', 'App\Http\Controllers\mahasiswaLaporanController@restore');
+Route::get('/dashboard/mahasiswa/laporan/restore/{id}', 'App\Http\Controllers\mahasiswaLaporanController@back');
+
+Route::get('/dashboard/mahasiswa/sidang','App\Http\Controllers\mahasiswasidangController@index');
+Route::get('/dashboard/mahasiswa/sidang/edit/{id}','App\Http\Controllers\mahasiswasidangController@edit');
+Route::post('/dashboard/mahasiswa/sidang/upload','App\Http\Controllers\mahasiswasidangController@upload');
