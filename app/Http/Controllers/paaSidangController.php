@@ -17,7 +17,7 @@ class paaSidangController extends Controller
             ->where('dosen.deleted_at',null)
             ->join('mahasiswa', 'sidang.nim_mhs', '=', 'mahasiswa.nim_mhs')
             ->where('mahasiswa.deleted_at',null)
-            ->join('laporan', 'laporan.id_laporan', '=', 'laporan.id_laporan')
+            ->join('laporan', 'sidang.id_laporan', '=', 'laporan.id_laporan')
             ->where('laporan.deleted_at',null)
             ->where('sidang.deleted_at',null)
             ->get(); 
@@ -114,7 +114,7 @@ class paaSidangController extends Controller
 
     public function download(Request $request){
         $nama = $request->file;
-        $filePath = public_path($nama);
+        $filePath = public_path()."/uploads/$nama";
     	$headers = ['Content-Type: application/jpg'];
     	$fileName = time().'.jpg';
 

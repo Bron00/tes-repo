@@ -30,7 +30,7 @@ class paaLaporanController extends Controller
 
     public function download(Request $request){
         $nama = $request->file;
-        $filePath = public_path($nama);
+        $filePath = public_path()."/uploads/$nama";
     	$headers = ['Content-Type: application/pdf'];
     	$fileName = time().'.pdf';
 
