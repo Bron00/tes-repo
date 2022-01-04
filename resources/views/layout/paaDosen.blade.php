@@ -45,8 +45,8 @@
                                 ?>
                             </td>
                             <td>
-                                <a href="/dashboard/paa/paa/edit/{{ $item->nip_dosen }}" class="btn btn-warning">Edit</a>
-                                <a href="/dashboard/paa/paa/hapus/{{ $item->nip_dosen }}" onclick="return confirm('Apakah anda ingin menghapusnya?')" class="btn btn-danger">Hapus</a>
+                                <a href="/dashboard/paa/dosen/edit/{{ $item->nip_dosen }}" class="btn btn-warning">Edit</a>
+                                <a href="/dashboard/paa/dosen/hapus/{{ $item->nip_dosen }}" onclick="return confirm('Apakah anda ingin menghapusnya?')" class="btn btn-danger">Hapus</a>
                             </td>                                           
                         </tr>
                         @endforeach                                       
