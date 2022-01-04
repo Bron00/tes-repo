@@ -98,6 +98,7 @@ Route::post('/dashboard/kadep/pengajuan','App\Http\Controllers\kpsPengajuanContr
 Route::get('/dashboard/wadek2/pengajuan','App\Http\Controllers\kpsPengajuanController@index');
 Route::post('/dashboard/wadek2/pengajuan','App\Http\Controllers\kpsPengajuanController@update');
 
+//mahasiswa
 Route::get('/dashboard/mahasiswa/laporan','App\Http\Controllers\mahasiswaLaporanController@index');
 Route::post('/dashboard/mahasiswa/laporan/store','App\Http\Controllers\mahasiswaLaporanController@store');
 Route::get('/dashboard/mahasiswa/laporan/edit/{id}','App\Http\Controllers\mahasiswaLaporanController@edit');
