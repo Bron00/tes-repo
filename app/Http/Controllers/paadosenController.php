@@ -25,12 +25,12 @@ class paadosenController extends Controller
         date_default_timezone_set('Asia/Jakarta');
         DB::table('dosen')->insert([
             'nip_dosen' => $request->nip_dosen,
-            'nama_dosen' => $request->nama_dosen,
+            'nama_dosen' => $request->dosen,
             'password' => $request->password,
-            'alamat_dosen' => $request->alamat_dosen,
-            'jk_dosen' => $request->jk_dosen,
-            'CREATED_AT' => date('Y-m-d H:i:s'),
-            'UPDATED_AT' => date('Y-m-d H:i:s'),
+            'alamat_dosen' => $request->alamat,
+            'jk_dosen' => $request->jenis,
+            'craeted_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
         ]);
         return redirect('/dashboard/paa/dosen')->with('tambah','Data berhasil ditambahkan');
     }

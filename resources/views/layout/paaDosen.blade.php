@@ -2,13 +2,51 @@
 @section('content')
 <div class="container-fluid">
     <h1 class="h3 mb-2 text-gray-800">Tables Dosen</h1>
-    @if (session()->has('edit'))
+    @if (session()->has('tambah'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('edit') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
-    
+    <div class="modal fade" id="tambahBalita" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Dosen</h5>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                <form action="/dashboard/paa/dosen/store" method="post">
+                    {{ csrf_field() }}
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">NIP Dosen</label><br>
+                        <input class="form-select form-select-lg mb-3 form-control" type="text" name="nip_dosen" required="required">
+                    </div> 
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">Nama Dosen</label><br>
+                        <input class="form-select form-select-lg mb-3 form-control" type="text" name="dosen" required="required">
+                    </div> 
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">Password</label><br>
+                        <input class="form-select form-select-lg mb-3 form-control" type="text" name="password" required="required">
+                    </div> 
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">Alamat</label><br>
+                        <input class="form-select form-select-lg mb-3 form-control" type="text" name="alamat" required="required">
+                    </div> 
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">Jenis Kelamin</label>
+                        <select class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example" name="jenis">
+                                <option value="1">Laki-laki</option>
+                                <option value="0">Perempuan</option>
+                        </select>                    
+                    </div>
+                    <button type="submit" class="btn btn-success">Tambah</button>                   
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between">
