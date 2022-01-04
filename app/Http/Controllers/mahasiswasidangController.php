@@ -20,7 +20,7 @@ class mahasiswasidangController extends Controller
     }
     public function upload(Request $request){
         $request->validate([
-            'file' => 'required|mimes:jpg,jpeg,xlx,csv|max:2048',
+            'file' => 'required|mimes:jpg,jpeg,xlx,csv,png'
         ]);
   
         $fileName = time().'.'.$request->file->extension();  

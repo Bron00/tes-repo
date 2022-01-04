@@ -4,7 +4,7 @@
     <h1 class="h3 mb-2 text-gray-800">Tables Dosen</h1>
     @if (session()->has('tambah'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('edit') }}
+        {{ session('tambah') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
@@ -20,7 +20,7 @@
                         {{ csrf_field() }}
                         <div class="mb-3">
                             <label for="formGroupExampleInput" class="form-label">NIP Dosen</label><br>
-                            <input class="form-select form-select-lg mb-3 form-control" type="text" name="nip_dosen" required="required">
+                            <input class="form-select form-select-lg mb-3 form-control" type="text" name="nip_dosen" maxlength="16" required="required">
                         </div> 
                         <div class="mb-3">
                             <label for="formGroupExampleInput" class="form-label">Nama Dosen</label><br>

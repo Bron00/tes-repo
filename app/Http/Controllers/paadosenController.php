@@ -15,13 +15,6 @@ class paadosenController extends Controller
     }
 
     public function store(Request $request){
-        $request ->validate([
-            'nip_dosen' => 'required|max:16|min:16',
-            'nama_dosen' => 'required|max:50|min:3',
-            'password' => 'required|min:6',
-            'alamat_dosen' => 'required|max:150|min:3',
-            'jk_dosen' => 'required'
-        ]);
         date_default_timezone_set('Asia/Jakarta');
         DB::table('dosen')->insert([
             'nip_dosen' => $request->nip_dosen,
@@ -29,7 +22,7 @@ class paadosenController extends Controller
             'password' => $request->password,
             'alamat_dosen' => $request->alamat,
             'jk_dosen' => $request->jenis,
-            'craeted_at' => date('Y-m-d H:i:s'),
+            'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
         return redirect('/dashboard/paa/dosen')->with('tambah','Data berhasil ditambahkan');
