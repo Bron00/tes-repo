@@ -79,6 +79,13 @@ Route::get('/dashboard/paa/dosen/hapus/{id}', 'App\Http\Controllers\paadosenCont
 Route::get('/dashboard/paa/dosen/restore', 'App\Http\Controllers\paadosenController@restore');
 Route::get('/dashboard/paa/dosen/restore/{id}', 'App\Http\Controllers\paadosenController@back');
 
+Route::get('/dashboard/paa/kps','App\Http\Controllers\paakpsController@index');
+Route::get('/dashboard/paa/kadep','App\Http\Controllers\paaKadepController@index');
+Route::get('/dashboard/paa/wadek','App\Http\Controllers\paaWadekController@index');
+
+
+
+
 //kps
 Route::get('/dashboard/kps/pengajuan','App\Http\Controllers\kpsPengajuanController@index');
 Route::post('/dashboard/kps/pengajuan','App\Http\Controllers\kpsPengajuanController@update');
